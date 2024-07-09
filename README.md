@@ -15,7 +15,7 @@ This action use only AWS CLI, and not use Docker.
 ```yaml
 - name: Retag an image in Amazon ECR
   id: retag-ecr
-  uses: tmknom/retag-ecr-action@v1
+  uses: climatepolicyradar/gha-retag-ecr-action@v0
   with:
     repository-name: example
     source-tag: latest
@@ -27,7 +27,7 @@ This action use only AWS CLI, and not use Docker.
 ```yaml
 - name: Retag an image in Amazon ECR
   id: retag-ecr
-  uses: tmknom/retag-ecr-action@v1.0.9
+  uses: climatepolicyradar/gha-retag-ecr-action@v0.1.0
   with:
     repository-name: example
     source-tag: latest
@@ -49,7 +49,7 @@ configure the GitHub Actions environment with environment variables containing A
 
 - name: Retag an image in Amazon ECR
   id: retag-ecr
-  uses: tmknom/retag-ecr-action@v1
+  uses: climatepolicyradar/gha-retag-ecr-action@v0
   with:
     repository-name: example
     source-tag: latest
