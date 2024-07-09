@@ -51,36 +51,6 @@ DOCKER_RUN ?= $(DOCKER) run $(DOCKER_RUN_OPTIONS)
 SECURE_DOCKER_RUN ?= $(DOCKER_RUN) $(DOCKER_RUN_SECURE_OPTIONS)
 
 #
-# Lint
-#
-.PHONY: lint
-lint: lint-markdown lint-yaml ## lint all
-
-.PHONY: lint-markdown
-lint-markdown: ## lint markdown by markdownlint and prettier
-	$(SECURE_DOCKER_RUN) markdownlint --dot --config .markdownlint.yml **/*.md
-	$(SECURE_DOCKER_RUN) prettier --check --parser=markdown **/*.md
-
-.PHONY: lint-yaml
-lint-yaml: ## lint yaml by yamllint and prettier
-	$(SECURE_DOCKER_RUN) yamllint --strict --config-file .yamllint.yml .
-	$(SECURE_DOCKER_RUN) prettier --check --parser=yaml **/*.y*ml
-
-#
-# Format code
-#
-.PHONY: format
-format: format-markdown format-yaml ## format all
-
-.PHONY: format-markdown
-format-markdown: ## format markdown by prettier
-	$(SECURE_DOCKER_RUN) prettier --write --parser=markdown **/*.md
-
-.PHONY: format-yaml
-format-yaml: ## format yaml by prettier
-	$(SECURE_DOCKER_RUN) prettier --write --parser=yaml **/*.y*ml
-
-#
 # Documentation management
 #
 .PHONY: docs
